@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle 1</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Puzzle 1</h1>
+        <p>Decrypt the following message to find the next link:</p>
+        <pre id="encrypted-message">Uryyb Jbeyq</pre>
+
+        <p>Hint: Use a simple Caesar cipher.</p>
+    </div>
+
+    <script>
+        const encryptedMessage = document.getElementById('encrypted-message').innerText;
+        const decryptedMessage = caesarDecrypt(encryptedMessage, 13);
+
+        function caesarDecrypt(str, shift) {
+            return str.replace(/[a-zA-Z]/g, function(c) {
+                return String.fromCharCode((c <= "Z" ? 90 : 122) >= (c = c.charCodeAt(0) + shift) ? c : c - 26);
+            });
+        }
+
+        console.log(`Decrypted Message: ${decryptedMessage}`);
+    </script>
+</body>
+</html>
