@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle 4 - Layered Challenge</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Layered Puzzle Challenge</h1>
+        <p>Solve the first riddle to reveal a clue for the next stage:</p>
+
+        <div id="stage1" class="puzzle-stage">
+            <p>Stage 1: What has keys but can't open locks?</p>
+            <input type="text" id="answer1" placeholder="Your answer here">
+            <button onclick="checkAnswer1()">Submit</button>
+            <div id="clue1" class="hidden"></div>
+        </div>
+
+        <div id="stage2" class="puzzle-stage hidden">
+            <p>Stage 2: Find the hidden link in this page's HTML.</p>
+            <!-- Hidden link in the source code -->
+            <!-- <a href="puzzle5.html">Proceed to Stage 3</a> -->
+        </div>
+
+        <script>
+            function checkAnswer1() {
+                const answer = document.getElementById('answer1').value.toLowerCase();
+                if (answer === 'piano') {
+                    document.getElementById('clue1').innerText = 'Correct! Check the HTML source for a link.';
+                    document.getElementById('clue1').classList.remove('hidden');
+                    document.getElementById('stage2').classList.remove('hidden');
+                    updateProgress('layeredPuzzleStage1');
+                } else {
+                    alert('Try again!');
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>
