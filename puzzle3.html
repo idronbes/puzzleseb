@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle 3 - JavaScript Cipher</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>JavaScript Cipher Puzzle</h1>
+        <p>Solve the cipher to proceed:</p>
+        <pre id="cipher-text">R0lGODlhAQABAIAAAAUEBA==</pre>
+        <button onclick="decodeMessage()">Decode</button>
+
+        <div id="solution" class="hidden"></div>
+
+        <script>
+            function decodeMessage() {
+                const encodedText = document.getElementById('cipher-text').innerText;
+                const decodedText = atob(encodedText); // Base64 decoding
+                document.getElementById('solution').innerText = `Decoded message: ${decodedText}`;
+                document.getElementById('solution').classList.remove('hidden');
+            }
+        </script>
+    </div>
+</body>
+</html>
